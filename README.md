@@ -20,7 +20,9 @@ FACTS;
 
 - *printf returns an integer value*, which is the total _number of printed_ characters.
 - TEST_REALM_ft_printf.c:45:32: warning: format specifies type 'int' but the argument has type 'char *' [-Wformat]
-- above is for when 	printf("%d is a decimal num", "hello");
+- above is for when 	printf("%d is a decimal num", "hello");   (!!see _patch note 0.2_)
+
+- !!! we CAN essentially PASS FULL VA_LIST and we can *HANDLE* the ARGUMENTS ONE By ONE *!externally!*  !!
 
 
 _____
@@ -45,7 +47,7 @@ va_list is a new variable type responsible for handling the variadic function ar
 ##### va_start
 va_start is used to initiate the variable
 - takes in the variable which is _before_ the 'ellipsis' and then it handles arguments
-- va_start(before_el, arguments)
+- va_start(ellipsis, arguments)
 
 ##### va_arg
 va_arg is responsible for *pulling* the arguments (elements) one at a time, looping
@@ -66,15 +68,21 @@ _________
 
 ### PATCH NOTES
 
+###### -- 0.3.
+
+replaced ft_printf_int.c with putnbr and stuff
+workin on the handler (variadic argument handler)
+handler implemented
+
 ###### -- 0.2. -- Implement Logic
 
 In this work session, we added ehm the discovery exploration notes. The insights
 helped me understand the variable argument stuff.
 
 > conversions = "cspdiuxX%";
-> 	if its 0 (c) --> char *
->	if its 1 (s) --> char
->	if its 2 (p) --> "prints" pointer
+> 	if its 0 (c) --> int (single character as per the ascii table)
+>	if its 1 (s) --> char | string of characters
+>	if its 2 (p) --> "prints" pointer | (format specifies 'void *')
 >	if its 3 (d) or 4 (i) --> int
 >	if its 5, 6, 7 (iuxX) --> unsigned int
 > 		further, 6, 7 (xX) is converted to hex

@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <stdarg.h>
 
-int	ft_putcharo(int c)
+static int	ft_putcharo(int c)
 {
 	write(1, &c, 1);
 	return (1);
@@ -12,18 +12,28 @@ int	ft_putcharo(int c)
 
 static int ft_printfhandler(va_list input, const char type)
 {
-// needs to correctly influence the printf return value
 	int		chars_printed;
 
 	chars_printed = 0;
-	write(1, "[STUFF]", 7);
+	if (type == 'd' || type == 'i')
+		chars_printed += handle_di(va_arg(input, int));
+	else if (type == 'u')
+		chars_printed += handle_u(va_arg(input, unsigned int));
+	else if (type == 'x' || type == 'X')
+		chars_printed += handle_x(va_arg(input, unsigned int), type);
+	else if (type == 'c')
+		chars_printed += handle_c(va_arg(input, char *));
+	else if (type == 's')
+		chars_printed += handle_s(va_arg(input, char));
+	else if (type == 'p')
+		chars_printed += ft_print_pointer(va_arg(input, unsigned long long));
+	else if (type == '%')
+		chars_printed += ft_printpercent();
 	return (chars_printed);
 }
-
 // if there is a fucking variadic argument, we take it and we copy it with whatever fuck you
 
-
-int print(const char *to_be_printed, ... )
+int ft_printf(const char *to_be_printed, ... )
 {
 	va_list	conversions;
 	int 	chars_printed;
@@ -45,9 +55,9 @@ int print(const char *to_be_printed, ... )
 	return(chars_printed);
 }
 
-int main(void)
+int	main(void)
 {
-	print("whatsup bro%s, hello");
+	ft_printf("whatsup bro%s, hello");
 	return(0);
 }
 
