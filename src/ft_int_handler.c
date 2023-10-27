@@ -58,5 +58,7 @@ int	handle_id(int i)
 int	main(void)
 {
 	printf("%d is the length of the integer i will pass in", ft_numlen(-250, 10));
+	handle_u(-150932094);
+	handle_u(handle_u(-150932094));
 	return(0);
 }
