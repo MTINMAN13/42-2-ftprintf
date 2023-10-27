@@ -1,12 +1,5 @@
-
-#include <unistd.h>
-#include <stdio.h>
-
-static int	ft_putcharo(int c)
-{
-	write(1, &c, 1);
-	return (1);
-}
+#include "ft_printf.h"
+#include "libft.h"
 
 int	handle_s(char *string)
 {
@@ -19,11 +12,11 @@ int	handle_s(char *string)
 		string++;
 		returnvalue++;
 	}
-	return(returnvalue);
+	return (returnvalue);
 }
 
 int	handle_c(int whatever)
 {
 	ft_putcharo(whatever);
-	return(1);
+	return (1);
 }

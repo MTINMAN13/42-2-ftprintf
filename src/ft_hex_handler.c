@@ -1,6 +1,3 @@
-
-
-
 // goal of this is to convert integer to_hex to a Hexadecimal number
 // if the type is x it will do it with lowercase numbers
 // if the type is X it will do it with uppercase numbers
@@ -10,7 +7,7 @@
 #include "ft_printf.h"
 #include "libft.h"
 
-static int	ft_hex_len(unsigned	int num)
+int	ft_hex_len(unsigned	int num)
 {
 	int	len;
 

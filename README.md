@@ -23,14 +23,19 @@ FACTS;
 - above is for when 	printf("%d is a decimal num", "hello");   (!!see _patch note 0.2_)
 
 - !!! we CAN essentially PASS FULL VA_LIST and we can *HANDLE* the ARGUMENTS ONE By ONE *!externally!*  !!
+- (some time has passed since the above lines..) so i took this shit and fucking ran with it.. specifically i ran with it here static int ft_printfhandler(va_list input, const char type)
+
+- !!! POINTERS HAVE THEIR OWN VARIABLE TYPE !! _(lmao, who knew?_ :)_)_
+- pointer wants to be in uintptr_t
+
+AND THATS ALL FOLKS!
 
 
 _____
-> - DESC
+> - THE ORIGINAL DESCRIPTION
 > You will discover variadic functions in C.
 > The key to a successful ft_printf is a well-structured and extensible code.
-
-int		ft_printf(const char *, ...)
+> int		ft_printf(const char *, ...)
 
 ## notes about functions (and terms)
 ##### 'Ellipsis' (...)
@@ -42,6 +47,11 @@ va_list is a new variable type responsible for handling the variadic function ar
 - va_list its used to declare the variable used to hold the arguments
 - its responsible for holding the parameter past the (...) called _Ellipsis _(the three dots yes)_ in the function prototype (aka signature, or header)
 - va_list	arguments;
+
+##### (UPDATE) uintptr_t | variable
+uintptr_t is an unsigned integer type that is guaranteed to be able to hold the value of a pointer.
+- its in stdint.h
+- #include <stdint.h>
 
 ## functions
 ##### va_start
@@ -68,11 +78,36 @@ _________
 
 ### PATCH NOTES
 
-###### -- 0.3.
+###### -- 0.6. The Pointer whatever chapter thing.. how does this fucking shit work? WHAT THE FUCK
+how to i even print the fucking pointer
+a: we do this shit -->
+
+#include <unistd.h>
+#include <stdint.h>
+
+int	ft_print_pointer(unsigned long long *hi)
+{
+	uintptr_t	fuckingpointer;
+
+	fuckingpointer = (uintptr_t)hi;
+	return(0);
+}
+
+int	main(void)
+{
+	ft_print_pointer("what");
+	return(0);
+}
+
+in this patch we added the pointer handler thus finishing or rather fuck no not finishing, just rather entering a polishing phase
+fuck
+i am entering the polishing phase next
+
+###### -- 0.3. (also known as 0.5)
 
 replaced ft_printf_int.c with putnbr and stuff
 workin on the handler (variadic argument handler)
-handler implemented
+handler implemented (static int ft_printfhandler(va_list input, const char type))
 
 ###### -- 0.2. -- Implement Logic
 
