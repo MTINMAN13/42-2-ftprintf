@@ -1,7 +1,6 @@
 #include "ft_printf.h"
-#include "libft.h"
 
-int	handle_s(char *string)
+int	ft_handle_s(char *string)
 {
 	int	returnvalue;
 
@@ -15,8 +14,14 @@ int	handle_s(char *string)
 	return (returnvalue);
 }
 
-int	handle_c(int whatever)
+int	ft_handle_c(int whatever)
 {
 	ft_putcharo(whatever);
+	return (1);
+}
+
+int	ft_print_percent(void)
+{
+	ft_putcharo('%');
 	return (1);
 }

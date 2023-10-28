@@ -78,6 +78,22 @@ _________
 
 ### PATCH NOTES
 
+###### -- 0.7.
+works pretty well, need to fix some shiet like the POinter Formatting - the proper 0x.. is missing
+
+and fuck the unsigned integer doesnt work AT ALL so i will need to
+
+yea
+
+hey the unsinged is pretty well testable so my godlike code gonna reun in the next minute FOR SURE
+
+HAHAHAH
+
+no but fr fr
+(epic)
+
+IM GOING TO SLEEP NOW GOOD NIGT
+
 ###### -- 0.6. The Pointer whatever chapter thing.. how does this fucking shit work? WHAT THE FUCK
 how to i even print the fucking pointer
 a: we do this shit -->

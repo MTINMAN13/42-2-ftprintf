@@ -36,7 +36,7 @@ WHITE = \033[0;97m
 
 #Sources
 
-SRC_FILES	=	ft_hex_handler ft_int_handler ft_pointer_handler ft_print_handlers_ ft_printf
+SRC_FILES	=	ft_hex_handler ft_int_handler ft_pointer_handler ft_print_handlers ft_printf
 
 SRC 		= 	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
 OBJ 		= 	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))

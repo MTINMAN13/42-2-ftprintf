@@ -1,7 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-// #include "libft.h"
-// #include "ft_printf.h"
+#include "ft_printf.h"
 
 int	ft_numlen(int n, int base)
 {
@@ -15,7 +12,7 @@ int	ft_numlen(int n, int base)
 	return (count);
 }
 
-char	handle_u(unsigned int n)
+char	ft_handle_u(unsigned int n)
 {
 	unsigned int			len;
 	char					*ret;
@@ -44,20 +41,11 @@ char	handle_u(unsigned int n)
 	return (len);
 }
 
-int	handle_id(int i)
+int	ft_handle_di(int i)
 {
 	int	len;
 
 	len = ft_numlen(i, 10);
-	ft_putnbr_fd(i, 10);
+	ft_putnbr_fd(i, 1);
 	return (len);
 }
-
-// int	main(void)
-// {
-// 	printf("%d is the length of the
-//  integer i will pass in", ft_numlen(-250, 10));
-// 	handle_u(-150932094);
-// 	handle_u(handle_u(-150932094));
-// 	return(0);
-// }

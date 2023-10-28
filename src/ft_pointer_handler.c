@@ -11,9 +11,10 @@ int	ft_print_pointer(void *hi)
 
 	fuckingpointer = (uintptr_t)hi;
 	returnvalue = 0;
+	ft_handle_s("0x100");
 	ft_handle_x(fuckingpointer, 'x');
 	returnvalue = ft_hex_len(fuckingpointer);
-	return (returnvalue);
+	return (returnvalue + 4);
 }
 // int	main(void)
 // {
