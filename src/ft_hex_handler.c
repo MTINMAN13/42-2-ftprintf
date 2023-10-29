@@ -7,9 +7,9 @@
 #include "ft_printf.h"
 #include "libft.h"
 
-int	ft_hex_len(unsigned	int num)
+int	ft_hex_len(long	long num)
 {
-	int	len;
+	unsigned long	len;
 
 	len = 0;
 	while (num != 0)

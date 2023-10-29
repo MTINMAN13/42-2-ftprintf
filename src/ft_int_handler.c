@@ -1,8 +1,8 @@
 #include "ft_printf.h"
 
-int	ft_numlen(int n, int base)
+unsigned long long	ft_numlen(long n, int base)
 {
-	int	count;
+	unsigned long long	count;
 
 	count = 0;
 	if (n <= 0)
@@ -12,7 +12,18 @@ int	ft_numlen(int n, int base)
 	return (count);
 }
 
-char	ft_handle_u(unsigned int n)
+void	ft_putstr_fd(char *s, int fd)
+{
+	if (!(s))
+		return ;
+	while (*s)
+	{
+		write(fd, s, 1);
+		s++;
+	}
+}
+
+void	ft_print_u(unsigned int n)
 {
 	unsigned int			len;
 	char					*ret;
@@ -21,8 +32,8 @@ char	ft_handle_u(unsigned int n)
 	digits = "0123456789";
 	len = ft_numlen(n, 10);
 	ret = malloc(sizeof(char) * (len + 1));
-	if (!ret)
-		return (0);
+	if (ret == NULL)
+		return ;
 	ret[len] = 0;
 	if (n == 0)
 		ret[0] = '0';
@@ -38,7 +49,12 @@ char	ft_handle_u(unsigned int n)
 	}
 	ft_putstr_fd(ret, 1);
 	free(ret);
-	return (len);
+}
+
+int	ft_handle_u(unsigned int n)
+{
+	ft_print_u(n);
+	return(ft_numlen(n, 10));
 }
 
 int	ft_handle_di(int i)
@@ -49,3 +65,9 @@ int	ft_handle_di(int i)
 	ft_putnbr_fd(i, 1);
 	return (len);
 }
+
+// int	main(void)
+// {
+// 	ft_handle_u(ft_handle_u(1000));
+// 	return(0);
+// }

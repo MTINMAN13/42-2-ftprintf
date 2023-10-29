@@ -1,5 +1,7 @@
 #include "ft_printf.h"
 
+//  TODO TEST(10, print(" NULL %s NULL ", NULL));
+
 int	ft_handle_s(char *string)
 {
 	int	returnvalue;

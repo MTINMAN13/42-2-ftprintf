@@ -4,6 +4,24 @@
 #include "ft_printf.h"
 #include "libft.h"
 
+void	ft_handle_x_ptr(unsigned long long num)
+{
+	if (num >= 16)
+	{
+		ft_handle_x_ptr(num / 16);
+		ft_handle_x_ptr(num % 16);
+	}
+	else
+	{
+		if (num <= 9)
+			ft_putchar_fd((num + '0'), 1);
+		else
+			ft_putchar_fd((num - 10 + 'a'), 1);
+	}
+}
+
+// todo TEST(8, print(" %p %p ", ULONG_MAX, -ULONG_MAX));
+
 int	ft_print_pointer(void *hi)
 {
 	uintptr_t	fuckingpointer;
@@ -11,10 +29,15 @@ int	ft_print_pointer(void *hi)
 
 	fuckingpointer = (uintptr_t)hi;
 	returnvalue = 0;
-	ft_handle_s("0x100");
-	ft_handle_x(fuckingpointer, 'x');
-	returnvalue = ft_hex_len(fuckingpointer);
-	return (returnvalue + 4);
+	returnvalue += ft_handle_s("0x");
+	if (hi == 0)
+		returnvalue += ft_handle_s("0");
+	else
+	{
+		ft_handle_x_ptr(fuckingpointer);
+		returnvalue += ft_hex_len(fuckingpointer);
+	}
+	return (returnvalue);
 }
 // int	main(void)
 // {
