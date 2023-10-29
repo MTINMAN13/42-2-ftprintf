@@ -18,17 +18,19 @@
 #include <unistd.h>
 #include "libft.h"
 
-int			ft_putcharo(int c);
-int			ft_hex_len(unsigned	int num);
-int			ft_printfhandler(va_list input, const char type);
-void		ft_handle_x(unsigned int num, const char format);
-int			ft_print_hex(unsigned int num, const char format);
-int			ft_numlen(int n, int base);
-char		ft_handle_u(unsigned int n);
-int			ft_handle_di(int i);
-int			ft_print_pointer(void *hi);
-int			ft_print_percent(void);
-int			ft_handle_s(char *string);
-int			ft_handle_c(int whatever);
-int			ft_printf(const char *to_be_printed, ... );
+int					ft_putcharo(int c);
+void				ft_handle_x(unsigned int num, const char format);
+int					ft_printfhandler(va_list input, const char type);
+void				ft_handle_x(unsigned int num, const char format);
+int					ft_print_hex(unsigned int num, const char format);
+int					ft_hex_len(long	long num);
+unsigned long long	ft_numlen(long n, int base);
+void				ft_print_u(unsigned int n);
+int					ft_handle_u(unsigned int n);
+int					ft_handle_di(int i);
+int					ft_print_pointer(void *hi);
+int					ft_print_percent(void);
+int					ft_handle_s(char *string);
+int					ft_handle_c(int whatever);
+int					ft_printf(const char *to_be_printed, ... );
 #endif

@@ -78,6 +78,18 @@ _________
 
 ### PATCH NOTES
 
+###### -- 0.8.
+
+rolled out a fix for the unsigned int.. (essentially i split the previous function into a more robust frame)
+
+i am aware of an issue with the pointers, where pointers of ULONG_MAX, -ULONG_MAX return unexpected values
+
+further issues arrise in extreme edgecases (incorrect return value is produced there)
+
+```
+gcc -o my_program test.c -I ../include -L .. -lftprintf -L ../libft -lft
+```
+
 ###### -- 0.7.
 works pretty well, need to fix some shiet like the POinter Formatting - the proper 0x.. is missing
 

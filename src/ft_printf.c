@@ -45,6 +45,8 @@ int	ft_printf(const char *to_be_printed, ...)
 	va_list	conversions;
 	int		chars_printed;
 
+	if (to_be_printed == NULL)
+		return (0);
 	chars_printed = 0;
 	va_start(conversions, to_be_printed);
 	while (*to_be_printed)
