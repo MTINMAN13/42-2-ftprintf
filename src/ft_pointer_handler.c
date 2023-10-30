@@ -3,39 +3,44 @@
 
 #include "ft_printf.h"
 #include "libft.h"
+#include <limits.h>
 
-void	ft_handle_x_ptr(unsigned long long num)
+int	ft_handle_x_ptr(unsigned long long num)
 {
-	if (num >= 16)
+	int		count;
+	char	c;
+
+	count = 0;
+	if (num < 16)
 	{
-		ft_handle_x_ptr(num / 16);
-		ft_handle_x_ptr(num % 16);
+		if (num <= 9)
+			c = num + '0';
+		else
+			c = num - 10 + 'a';
+		ft_putchar_fd(c, 1);
+		count = 1;
 	}
 	else
 	{
-		if (num <= 9)
-			ft_putchar_fd((num + '0'), 1);
-		else
-			ft_putchar_fd((num - 10 + 'a'), 1);
+		count += ft_handle_x_ptr(num / 16);
+		count += ft_handle_x_ptr(num % 16);
 	}
+	return (count);
 }
-
-// todo TEST(8, print(" %p %p ", ULONG_MAX, -ULONG_MAX));
 
 int	ft_print_pointer(void *hi)
 {
-	uintptr_t	fuckingpointer;
-	int			returnvalue;
+	unsigned long long	fuckingpointer;
+	int					returnvalue;
 
-	fuckingpointer = (uintptr_t)hi;
+	fuckingpointer = (unsigned long long)hi;
 	returnvalue = 0;
 	returnvalue += ft_handle_s("0x");
-	if (hi == 0)
+	if (fuckingpointer == 0)
 		returnvalue += ft_handle_s("0");
 	else
 	{
-		ft_handle_x_ptr(fuckingpointer);
-		returnvalue += ft_hex_len(fuckingpointer);
+		returnvalue += ft_handle_x_ptr(fuckingpointer);
 	}
 	return (returnvalue);
 }

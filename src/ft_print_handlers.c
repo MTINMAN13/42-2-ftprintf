@@ -1,12 +1,12 @@
 #include "ft_printf.h"
 
-//  TODO TEST(10, print(" NULL %s NULL ", NULL));
-
 int	ft_handle_s(char *string)
 {
 	int	returnvalue;
 
 	returnvalue = 0;
+	if (string == (char *) NULL)
+		string = "(null)";
 	while (*string)
 	{
 		ft_putcharo(*string);

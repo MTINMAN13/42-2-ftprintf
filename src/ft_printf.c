@@ -63,9 +63,6 @@ int	ft_printf(const char *to_be_printed, ...)
 	va_end(conversions);
 	return (chars_printed);
 }
-
-
-
 // int	main(void)
 // {
 // 	int	target_dummy;

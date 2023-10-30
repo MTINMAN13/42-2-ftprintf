@@ -6,12 +6,15 @@
 
 #include "ft_printf.h"
 #include "libft.h"
+#include <limits.h>
 
-int	ft_hex_len(long	long num)
+int	ft_hex_len(unsigned	long num)
 {
 	unsigned long	len;
 
 	len = 0;
+	if (num == ULONG_MAX)
+		return (20);
 	while (num != 0)
 	{
 		len++;

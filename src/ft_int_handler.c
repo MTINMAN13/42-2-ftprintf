@@ -54,7 +54,7 @@ void	ft_print_u(unsigned int n)
 int	ft_handle_u(unsigned int n)
 {
 	ft_print_u(n);
-	return(ft_numlen(n, 10));
+	return (ft_numlen(n, 10));
 }
 
 int	ft_handle_di(int i)
