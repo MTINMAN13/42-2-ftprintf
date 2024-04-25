@@ -1,5 +1,6 @@
 # 42-2-ftprintf
-prototype logic
+
+```
 int	main(void)
 {
 	const char *printable = "ahoj";
@@ -15,4 +16,4 @@ int	main(void)
 	}
 	return(i);
 }
-
+```
